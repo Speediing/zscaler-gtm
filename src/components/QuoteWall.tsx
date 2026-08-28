@@ -18,7 +18,7 @@ export function QuoteWall() {
     <section id="testimonials" className="quotes">
       <h2>Testimonials</h2>
       <p className="section-lede">
-        Six reactions that capture the persistent-agent difference.
+        Six sourced public product testimonials. These are not Zscaler quotes.
       </p>
       <div className="quote-thread">
         {featuredQuotes.map((quote) => (

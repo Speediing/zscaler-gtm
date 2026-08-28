@@ -11,15 +11,7 @@ function Screen({ scene }: { scene: StoryScene }) {
       </>
     );
   }
-  if (scene === "demo") {
-    return (
-      <>
-        <rect x="16" y="14" width="52" height="32" rx="1.4" fill="currentColor" opacity="0.12" />
-        <path d="M36 24l14 8-14 8z" fill="currentColor" opacity="0.5" />
-      </>
-    );
-  }
-  if (scene === "notes" || scene === "voice") {
+  if (scene === "notes") {
     return (
       <path
         d="M20 18h44M20 26h44M20 34h30M20 42h22"
@@ -28,15 +20,6 @@ function Screen({ scene }: { scene: StoryScene }) {
         strokeWidth="2"
         opacity="0.45"
       />
-    );
-  }
-  if (scene === "map") {
-    return (
-      <>
-        <rect x="18" y="18" width="28" height="6" rx="1" fill="currentColor" opacity="0.45" />
-        <rect x="18" y="28" width="40" height="6" rx="1" fill="currentColor" opacity="0.7" />
-        <rect x="18" y="38" width="22" height="6" rx="1" fill="currentColor" opacity="0.3" />
-      </>
     );
   }
   if (scene === "inspect" || scene === "deck") {
@@ -49,29 +32,6 @@ function Screen({ scene }: { scene: StoryScene }) {
           stroke="currentColor"
           strokeWidth="2"
           opacity="0.45"
-        />
-      </>
-    );
-  }
-  if (scene === "launch") {
-    return (
-      <>
-        <rect x="16" y="16" width="36" height="10" rx="2" fill="currentColor" opacity="0.18" />
-        <rect x="22" y="30" width="44" height="10" rx="2" fill="currentColor" opacity="0.32" />
-      </>
-    );
-  }
-  if (scene === "drill") {
-    return (
-      <>
-        <circle cx="32" cy="26" r="7" fill="none" stroke="currentColor" strokeWidth="1.8" opacity="0.45" />
-        <circle cx="52" cy="26" r="7" fill="none" stroke="currentColor" strokeWidth="1.8" opacity="0.45" />
-        <path
-          d="M22 42c2-6 6-9 10-9s8 3 10 9"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          opacity="0.35"
         />
       </>
     );
@@ -144,22 +104,18 @@ function LiveVisual({ visual }: { visual: StoryVisual }) {
           </footer>
         </div>
       );
-    case "live-transcript":
+    case "discovery-notes":
       return (
         <div className="story-ui story-transcript-ui" aria-hidden>
           <header className="story-ui-bar">
-            <strong>Live transcript</strong>
-            <span>{visual.timestamp}</span>
+            <strong>{visual.title}</strong>
+            <span>{visual.status}</span>
           </header>
-          <blockquote>
-            <strong>{visual.speaker}</strong>
-            “{visual.quote}”
-          </blockquote>
-          <footer>
-            {visual.signals.map((signal) => (
-              <span key={signal}>{signal}</span>
+          <ul className="story-note-list">
+            {visual.notes.map((note) => (
+              <li key={note}>{note}</li>
             ))}
-          </footer>
+          </ul>
         </div>
       );
     case "deck-update":
@@ -177,24 +133,21 @@ function LiveVisual({ visual }: { visual: StoryVisual }) {
           <footer>✓ {visual.status}</footer>
         </div>
       );
-    case "procurement-email":
+    case "request-email":
       return (
         <div className="story-ui story-email-ui" aria-hidden>
           <header className="story-ui-bar">
             <strong>Inbox</strong>
-            <span>5:27 AM</span>
+            <span>{visual.status}</span>
           </header>
           <div className="story-email-body">
-            <span className="story-avatar">JH</span>
+            <span className="story-avatar">TC</span>
             <p>
               <strong>{visual.sender}</strong>
               <small>{visual.subject}</small>
             </p>
           </div>
-          <footer>
-            <strong>{visual.questions}</strong>
-            questions need answers
-          </footer>
+          <footer>Approved sources required</footer>
         </div>
       );
     case "answers-found":
@@ -284,7 +237,7 @@ function LiveVisual({ visual }: { visual: StoryVisual }) {
               <p key={channel}>
                 <span>{index + 1}</span>
                 <strong>{channel}</strong>
-                <small>Personalized</small>
+                <small>Review draft</small>
               </p>
             ))}
           </div>

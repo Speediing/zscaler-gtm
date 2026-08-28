@@ -3,6 +3,22 @@ import { beatFor, type ComputerBeat } from "@/data/screens";
 import type { DemoPlayback } from "@/hooks/useDemoPlayback";
 import { SiteScreen } from "./SiteScreens";
 
+function accountSlug(account: string): string {
+  return (
+    account
+      .trim()
+      .toLowerCase()
+      .normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "") || "target-account"
+  );
+}
+
+function accountUrlPart(value: string, account: string): string {
+  return value.split("target-account").join(accountSlug(account));
+}
+
 function activeBeat(jobId: JobId, playback: DemoPlayback): ComputerBeat | undefined {
   const typingId = playback.typingFrom
     ? playback.messages[playback.visibleCount]?.id
@@ -27,7 +43,9 @@ export function BotComputer({
 
   if (!beat) return null;
 
-  const url = `https://${beat.host}${beat.path || ""}`;
+  const host = accountUrlPart(beat.host, playback.account);
+  const path = accountUrlPart(beat.path || "", playback.account);
+  const url = `https://${host}${path}`;
 
   return (
     <div className="pc" aria-label="Bot computer">

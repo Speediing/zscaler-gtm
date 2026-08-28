@@ -1,519 +1,501 @@
-import type { Artifact, CroJob, SlideCard } from "./types";
+import type { Artifact, SalesJob, SlideCard } from "./types";
 
-export const ACME_TAIL_SLIDES: SlideCard[] = [
+export const DISCOVERY_DECK: SlideCard[] = [
+  {
+    n: 1,
+    kicker: "Illustrative sample",
+    title: "Meeting goal",
+    body: "Confirm which AI applications, agents, or workflows need protection.",
+  },
+  {
+    n: 2,
+    kicker: "Approved context",
+    title: "Cybersecurity for the AI era",
+    body: "Zscaler is positioning around cybersecurity for the AI era.",
+  },
+  {
+    n: 3,
+    kicker: "Discovery to confirm",
+    title: "Keep unknowns visible",
+    body: "The current process, priority, owner, and value are still TBD.",
+  },
   {
     n: 4,
-    kicker: "They said · 4 min ago",
-    voice: "them",
-    title: "The Sev-2",
-    body: "We cannot tell a Sev-2 story across APM and logs without stitching tools.",
-  },
-  {
-    n: 5,
-    kicker: "Mapped live",
-    voice: "us",
-    title: "Start with APM + Logs",
-    body: "Same team that already feels the outage. Start there this quarter.",
-  },
-  {
-    n: 6,
-    kicker: "They said · 4 min ago",
-    voice: "them",
-    title: "The security bar",
-    body: "Security will not let another agent in without SSO and an audit trail.",
-  },
-  {
-    n: 7,
-    kicker: "Mapped live",
-    voice: "us",
-    title: "SSO, then Bits AI",
-    body: "Named on this call. One team. Bits AI after they see a faster fix.",
+    kicker: "Next meeting",
+    title: "Questions before claims",
+    body: "Confirm the workflow, the owner, and the desired outcome before sharing a recommendation.",
   },
 ];
 
-export const ACME_PROCUREMENT: Extract<Artifact, { kind: "redlines" }> = {
-  kind: "redlines",
-  title: "Acme procurement · overnight invoices",
-  paperTitle: "Their questions",
-  from: "Jordan Hale, Acme procurement · 5:27am your time",
-  marks: [
+export const APPROVED_ANSWER: Extract<
+  Artifact,
+  { kind: "answers" }
+> = {
+  kind: "answers",
+  title: "Approved answer pack",
+  label: "Illustrative sample",
+  checks: [
     {
-      text: "Why the $427.51 catch-up, and will it happen again?",
-      note: "Billing-system miss on our side, 1 July–17 July. INV-0081 is the one-time correction. Gap is closed.",
-      take: true,
+      question: "How does Zscaler frame AI security?",
+      answer: "Cybersecurity for the AI era.",
+      source: "Approved positioning",
+      status: "approved",
     },
     {
-      text: "Can the admin portal be trusted? Any more retro charges?",
-      note: "Dashboard for usage. Invoices under Billing are the billed record. Flag anything from a closed period before it is billed.",
-      take: true,
+      question: "What platform direction can the seller cite?",
+      answer:
+        "Zero Trust Exchange is expanding to secure AI applications, agents, and workflows.",
+      source: "Approved positioning",
+      status: "approved",
     },
     {
-      text: "How was the $715.55 Teams invoice calculated?",
-      note: "Two mid-cycle adds, 19→20→21, not one full-year seat. Proration through 17 July 2027. Seat is $384/year.",
-      take: true,
-    },
-    {
-      text: "Spend caps, PO invoicing, per-user limits.",
-      note: "Team-wide monthly cap is on Teams. Per-user caps and annual PO are Enterprise. Do not re-trade that from this inbox.",
-      take: false,
+      question: "What account-specific value is confirmed?",
+      answer: "TBD. Do not add an unsupported claim.",
+      source: "Account plan",
+      status: "tbd",
     },
   ],
   reply: {
-    to: "Jordan Hale, Acme procurement",
-    subject: "Acme invoices INV-0080 and INV-0081. Answers you can send today",
-    body: "Hi Jordan,\n\nINV-0081 ($427.51) is a one-time catch-up for usage 1–17 July that our billing system missed. Not new usage. Gap is closed. No further retros expected; I would flag any closed-period item before it billed.\n\nDashboard = usage. Billing invoices = what was billed. Those should now match. Send any line that does not.\n\nINV-0080 ($715.55) is two mid-cycle seat adds (19→21), not a full-year seat at $384. Renewal date does not change.\n\nTeam-wide spend cap is on Teams. Per-user caps and annual PO are Enterprise — that stays on the order form.\n\nHappy to jump on a call before these are processed.\n\nBest,",
+    to: "Customer contact (illustrative)",
+    subject: "Follow-up on AI security",
+    body: "Hi,\n\nZscaler is positioning around cybersecurity for the AI era. Zero Trust Exchange is expanding to secure AI applications, agents, and workflows.\n\nThe account-specific workflow, owner, and value are still TBD. We can use the next conversation to confirm those points before making a recommendation.\n\nBest,",
   },
 };
 
-export const ACME_OUTBOUND: Extract<Artifact, { kind: "outbound" }> = {
+export const OUTREACH_PACK: Extract<
+  Artifact,
+  { kind: "outbound" }
+> = {
   kind: "outbound",
-  title: "Acme outbound",
-  account: "Acme",
+  title: "Target account outreach pack",
+  account: "Target account",
   hypothesis: [
     {
-      k: "Why us",
-      body: "On-call still stitches Prometheus, Grafana, and a log pile to name a Sev-2. APM + Logs is the start, not a catalog pitch.",
+      k: "Why this account",
+      body: "TBD. Add one verified public priority before sending.",
     },
     {
       k: "Why now",
-      body: "Public incident 14 days ago. 47 minutes to name the failing service. Staff SRE JD asks for stitching APM and logs. The pain is current.",
+      body: "TBD. Add one current public trigger before sending.",
     },
     {
-      k: "Why them",
-      body: "VP Eng owns time-to-fix. Platform director lives in that stitch. They are the ones who felt the last Sev-2.",
+      k: "Why Zscaler",
+      body:
+        "Zscaler is expanding Zero Trust Exchange to secure AI applications, agents, and workflows.",
     },
   ],
   evidence: [
     {
-      source: "Status page · 14 days ago",
-      finding:
-        "Sev-2, 47 minutes to name the failing service. Postmortem language is still 'we jumped three tools.'",
+      source: "Target account public site",
+      finding: "Placeholder. Add one verified business priority.",
     },
     {
-      source: "Careers · Staff SRE",
-      finding:
-        "JD asks for 'experience stitching APM and logs across teams.' Open role, posted this month.",
-    },
-    {
-      source: "Engineering blog",
-      finding:
-        "We outgrew homegrown dashboards. No named replacement. That is the gap.",
+      source: "Approved internal account record",
+      finding: "No account-specific evidence is included in this sample.",
     },
   ],
   targets: [
     {
-      name: "Priya Shah",
-      role: "VP Engineering",
-      why: "Owns time-to-fix. Named in the SRE hiring chain.",
-    },
-    {
-      name: "Chris Okonkwo",
-      role: "Director, Platform",
-      why: "Team is the one stitching APM and logs today.",
+      name: "Target contact",
+      role: "Target role",
+      why: "Confirm that this person owns or supports AI security before sending.",
     },
   ],
   page: {
-    headline: "Acme's Sev-2 is a stitching problem",
-    body: "The last incident and the Staff SRE JD say the same thing. Start APM + Logs in the platform team. Bits AI after that team has a week-3 number. Not a product tour.",
+    headline: "A starting point for securing AI work at Target account",
+    body:
+      "Illustrative sample. Zscaler is expanding Zero Trust Exchange to secure AI applications, agents, and workflows. Confirm the target workflow and owner in discovery.",
   },
+  drafts: [
+    {
+      channel: "LinkedIn",
+      to: "Target contact",
+      body:
+        "Hi. I am researching how Target account is approaching security for AI applications, agents, and workflows. If this is in your scope, would a short discovery conversation be useful? This is an illustrative draft. Verify the contact and account context before sending.",
+    },
+    {
+      channel: "Email",
+      to: "Target contact",
+      subject: "AI security at Target account",
+      body:
+        "Hi,\n\nZscaler is expanding Zero Trust Exchange to secure AI applications, agents, and workflows. I would like to understand which AI workflows matter at Target account and who owns the security path.\n\nThis is an illustrative draft. Add a verified account trigger before sending.\n\nBest,",
+    },
+  ],
 };
 
-export const JOBS: CroJob[] = [
+export const JOBS: SalesJob[] = [
   {
-    id: "standardize-room",
+    id: "discovery-brief",
     number: 1,
-    title: "Update decks in real time",
-    trigger: "A customer call starts",
-    backgroundAction: "Listening to discovery + updating the open deck",
+    title: "Turn discovery into the next-meeting brief",
+    trigger: "A discovery call starts",
+    backgroundAction: "Capturing approved notes and building the follow-up deck",
     problem:
-      "A generic deck is a pitch they have already sat through. The wow is hearing their own discovery back, then seeing the next product named for their team, while they are still on.",
+      "Live discovery creates notes, open questions, and follow-up work. A new seller can lose the thread while moving it into a deck.",
     botJob:
-      "Granola is in while you are on. The last slides become their words and a product suggestion that fits this room. Not last quarter's story.",
+      "Grok Bot captures approved notes, keeps unknowns marked TBD, and drafts the next-meeting brief. It does not invent a quote.",
     storyboard: [
       {
-        when: "Minute 8",
-        label: "The call starts. Grok is already listening — no prompt needed.",
+        when: "During discovery",
+        label: "Grok Bot opens the note and follows the live conversation.",
         scene: "call",
         visual: {
           kind: "live-call",
-          title: "Acme discovery",
+          title: "Illustrative discovery",
           people: [
-            { initials: "JW", name: "You" },
-            { initials: "PS", name: "Priya" },
-            { initials: "CO", name: "Chris" },
+            { initials: "AE", name: "Seller" },
+            { initials: "TC", name: "Target contact" },
+            { initials: "SE", name: "Specialist" },
           ],
         },
       },
       {
-        when: "Minute 22",
-        label: "Their exact language lands in the transcript.",
-        scene: "demo",
-        visual: {
-          kind: "live-transcript",
-          timestamp: "14:31",
-          speaker: "Priya",
-          quote: "We stitch APM and logs together every time there is a Sev-2.",
-          signals: ["Sev-2", "APM + Logs"],
-        },
-      },
-      {
-        when: "Minute 31",
-        label: "Grok maps it to product and rewrites the open deck.",
+        when: "As notes arrive",
+        label: "It separates approved context from points that are still TBD.",
         scene: "notes",
         visual: {
-          kind: "deck-update",
-          eyebrow: "Their words",
-          headline: "A Sev-2 is a stitching problem",
-          product: "Start with APM + Logs",
-          status: "3 slides updated",
+          kind: "discovery-notes",
+          title: "Illustrative notes",
+          notes: [
+            "AI security is the discovery topic.",
+            "Current workflow and owner are TBD.",
+            "No customer quote is attributed.",
+          ],
+          status: "Notes organized",
         },
       },
       {
-        when: "Minute 35",
-        label: "Present the new slides before the call ends.",
+        when: "Before the next meeting",
+        label: "It turns the clean note into a short follow-up deck.",
         scene: "deck",
-        slides: ACME_TAIL_SLIDES,
+        visual: {
+          kind: "deck-update",
+          eyebrow: "Illustrative sample",
+          headline: "Next-meeting brief",
+          product: "Secure AI apps, agents, and workflows",
+          status: "Draft finished",
+        },
+      },
+      {
+        when: "Finished artifact",
+        label: "The seller gets a complete brief with unknowns left as TBD.",
+        scene: "deck",
+        slides: DISCOVERY_DECK,
       },
     ],
     unlock:
-      "Hyper-personalized discovery on the slide, plus a tailored product next step, while they are still on.",
+      "A clean brief is ready for review without an invented quote or account fact.",
     outcome:
-      "One live call becomes a customer-specific deck — before the call ends.",
-    clips: ["03-slides-granola"],
+      "The call becomes a short next-meeting brief that a new seller can use.",
+    clips: [],
     demo: {
-      title: "Room Ops",
-      subtitle: "Live discovery · slides in their words",
+      title: "Discovery Brief",
+      subtitle: "Live notes to a finished deck",
       participants: [
         { id: "you", name: "You", role: "you" },
         {
-          id: "room",
-          name: "Room Ops",
+          id: "brief",
+          name: "Discovery Brief",
           role: "bot",
-          persona: "Turns live discovery into slides that wow this room",
-          color: "#34C759",
+          persona: "Turns approved discovery notes into the next-meeting brief",
+          color: "#0065A8",
         },
         {
-          id: "slides",
-          name: "Slides",
+          id: "deck",
+          name: "Deck Builder",
           role: "bot",
-          persona: "Maps what they just said to a product suggestion for this team",
-          color: "#007AFF",
+          persona: "Builds a short deck and leaves unknowns marked TBD",
+          color: "#F47B20",
         },
       ],
       messages: [
         {
           id: "m1",
-          from: "room",
+          from: "brief",
           kind: "routine",
-          body: "Customer call started. I am following Granola and watching for their language, blockers, and product signals. The open deck stays untouched until there is something worth changing.",
+          body:
+            "Illustrative discovery started. I am capturing approved notes and marking unknowns as TBD.",
         },
         {
           id: "m2",
-          from: "room",
+          from: "brief",
           kind: "text",
-          body: "Priya just named the Sev-2 and the security bar in her words. Mapping both to the last slides now while the call is still live.",
+          body:
+            "The approved theme is AI security. The workflow, owner, priority, and value are still TBD. I did not attribute a customer quote.",
         },
         {
           id: "m3",
-          from: "room",
-          kind: "text",
-          body: "Still on. Granola 14:31. Their discovery is the slide. Sev-2 and the security bar in their words, then the product that fits this team. They should feel known, not pitched.",
+          from: "deck",
+          kind: "draft",
+          draftLabel: "Next-meeting deck",
+          artifact: {
+            kind: "slides",
+            title: "Target account next-meeting brief",
+            cards: DISCOVERY_DECK,
+          },
         },
         {
           id: "m4",
-          from: "slides",
+          from: "brief",
           kind: "draft",
-          draftLabel: "Last slides of the open deck · still on",
+          draftLabel: "Meeting checklist",
           artifact: {
-            kind: "slides",
-            title: "What we heard",
-            cards: ACME_TAIL_SLIDES,
+            kind: "packet",
+            title: "Questions to confirm",
+            fields: [
+              {
+                label: "Workflow",
+                value: "Which AI application, agent, or workflow is in scope?",
+              },
+              {
+                label: "Owner",
+                value: "Who owns the security path?",
+              },
+              {
+                label: "Value",
+                value: "What outcome matters to the account?",
+              },
+            ],
           },
         },
         {
           id: "m5",
-          from: "room",
-          kind: "draft",
-          draftLabel: "One-pager they can forward",
-          artifact: {
-            kind: "one-pager",
-            title: "Acme one-pager",
-            eyebrow: "One-pager",
-            sections: [
-              {
-                heading: "What we covered",
-                body: "Start with APM + Logs. Security needs SSO and an audit trail. Bits AI as a one-team trial, not a company-wide rollout.",
-              },
-              {
-                heading: "Security path",
-                body: "SSO and audit trail named before any extra products. The security lead from this call stays on the next meeting.",
-              },
-              {
-                heading: "Trial",
-                body: "Bits AI in the same team that starts APM + Logs. Week-3 time-to-fix is the gate. Add seats only after that number.",
-              },
-              {
-                heading: "What we need from you",
-                body: "Tuesday with your contact plus a security co-owner. Bring the contract owner if legal will slow SSO.",
-              },
-            ],
-          },
-        },
-        {
-          id: "m6",
-          from: "room",
-          kind: "draft",
-          draftLabel: "Note they can send inside",
-          artifact: {
-            kind: "packet",
-            title: "Forward this inside Acme",
-            fields: [
-              {
-                label: "Problem in their words",
-                value:
-                  "We cannot tell a Sev-2 story across APM and logs without stitching tools, and security will not let another agent in without SSO and an audit trail.",
-              },
-              {
-                label: "Why now",
-                value:
-                  "The team already agreed to start APM + Logs. Bits AI is useful in that same week-3 window, not after a product tour next quarter.",
-              },
-              {
-                label: "Risks already named",
-                value:
-                  "SSO + audit trail. Legal may slow the contract. Cost came up once and is not in this ask. RUM is not in the room.",
-              },
-              {
-                label: "Exact ask for next Tuesday",
-                value:
-                  "30 minutes. Your contact + a security co-owner. Dated SSO path. Written Bits AI trial scope for one team.",
-              },
-            ],
-          },
-        },
-        {
-          id: "m7",
-          from: "room",
-          kind: "draft",
-          draftLabel: "Gmail to your contact",
-          artifact: {
-            kind: "gmail",
-            title: "Forward to your contact",
-            to: "Acme contact",
-            subject: "Acme / Datadog. Tuesday packet (SSO, Bits AI trial)",
-            body: "Forwarding the internal note from today's room. Problem is in your words. Tuesday ask is your contact + a security co-owner, a dated SSO path, and a one-team Bits AI trial. Nothing else is in the ask.",
-          },
-        },
-        {
-          id: "m8",
-          from: "room",
+          from: "brief",
           kind: "system",
-          body: "Nothing sent. Deck, one-pager, note, and Gmail stay drafts until you tap Send.",
+          body: "Nothing sent. The deck and checklist wait for seller review.",
         },
       ],
     },
   },
   {
-    id: "legal-redlines",
+    id: "approved-answers",
     number: 2,
-    title: "Find product and internal answers fast",
-    trigger: "A customer question lands",
-    backgroundAction: "Searching product knowledge + internal company context",
+    title: "Find approved answers and draft the reply",
+    trigger: "A customer question arrives",
+    backgroundAction: "Checking approved product and internal sources",
     problem:
-      "A customer question can turn into a week of Slack across product, billing, finance, and legal. The seller waits, the customer waits, and internal experts lose time repeating answers.",
+      "A seller can spend too long searching for a safe answer. The risk is sending a claim that the source does not support.",
     botJob:
-      "Grok Bot watches for the question, searches product knowledge and internal company context, and drafts a sourced reply. The seller reviews instead of chasing teams.",
+      "Grok Bot checks approved product and internal sources, marks missing account context as TBD, and drafts a response for review.",
     storyboard: [
       {
-        when: "5:27am your time",
-        label: "Four questions land. Grok starts while you are asleep.",
+        when: "Question received",
+        label: "A generic AI security question reaches the seller.",
         scene: "notes",
         visual: {
-          kind: "procurement-email",
-          sender: "Jordan · Acme procurement",
-          subject: "Questions on INV-0080 + 0081",
-          questions: 4,
+          kind: "request-email",
+          sender: "Customer contact (illustrative)",
+          subject: "Question about securing AI workflows",
+          status: "Needs a sourced response",
         },
       },
       {
-        when: "7:42am",
-        label: "Grok has already found and checked every answer.",
+        when: "Source check",
+        label: "Grok Bot finds the approved positioning and keeps gaps visible.",
         scene: "inspect",
         visual: {
           kind: "answers-found",
           sources: [
-            { name: "Billing", answer: "Catch-up explained" },
-            { name: "Finance", answer: "Proration checked" },
-            { name: "Packaging", answer: "Limits confirmed" },
+            {
+              name: "Approved product material",
+              answer: "AI applications, agents, and workflows",
+            },
+            {
+              name: "Approved account plan",
+              answer: "Other discovery and value fields are TBD",
+            },
+            {
+              name: "Internal review",
+              answer: "No unsupported product claim included",
+            },
           ],
-          status: "4 / 4 answered",
+          status: "Source check complete",
         },
       },
       {
-        when: "7:44am",
-        label: "A sourced reply is waiting for one-click approval.",
+        when: "Draft ready",
+        label: "A short answer is ready for the seller to check.",
         scene: "send",
         visual: {
           kind: "reply-ready",
-          to: "Jordan Hale",
-          subject: "INV-0080 + 0081 · answers",
-          status: "Ready to approve",
+          to: "Customer contact",
+          subject: "Follow-up on AI security",
+          status: "Ready for review",
         },
+      },
+      {
+        when: "Finished artifact",
+        label: "The answer pack shows every source and every remaining TBD.",
+        scene: "send",
+        artifact: APPROVED_ANSWER,
       },
     ],
     unlock:
-      "Invoice questions in. A sendable draft out. No week of internal delay.",
+      "The seller gets a sourced draft and can see exactly which claims remain TBD.",
     outcome:
-      "Grok finds the product and internal context, then drafts the answer — no Slack chase and no seller time wasted.",
-    clips: ["01-morning-inbox"],
+      "Approved answers become a clear response without a long internal search.",
+    clips: [],
     demo: {
-      title: "Paper",
-      subtitle: "Procurement questions · draft waiting",
+      title: "Answer Desk",
+      subtitle: "Approved sources to a reviewed response",
       participants: [
         { id: "you", name: "You", role: "you" },
         {
-          id: "paper",
-          name: "Paper",
+          id: "answers",
+          name: "Answer Desk",
           role: "bot",
-          persona: "Reads overnight procurement mail and drafts the reply so you do not chase billing",
-          color: "#FF375F",
+          persona: "Finds approved answers and keeps unsupported claims out",
+          color: "#0B3B66",
         },
       ],
       messages: [
         {
           id: "m1",
-          from: "paper",
+          from: "answers",
           kind: "routine",
-          body: "New Acme procurement thread detected at 5:27am. Two invoices, four questions. Checking billing, finance, and packaging while you are offline.",
+          body:
+            "Generic sample question received. I am checking approved product material and the account plan.",
         },
         {
           id: "m2",
-          from: "paper",
+          from: "answers",
           kind: "text",
-          body: "Already read it overnight. Four questions. Draft is waiting. You do not need to ping billing, finance, or legal for this one. Nothing sent.",
+          body:
+            "I found the approved AI security positioning. Account-specific workflow, owner, and value are still TBD.",
         },
         {
           id: "m3",
-          from: "paper",
+          from: "answers",
           kind: "draft",
-          draftLabel: "Questions + reply",
-          artifact: ACME_PROCUREMENT,
+          draftLabel: "Approved answer pack",
+          artifact: APPROVED_ANSWER,
         },
         {
           id: "m4",
-          from: "paper",
+          from: "answers",
           kind: "draft",
-          draftLabel: "Gmail reply · not sent",
+          draftLabel: "Email response",
           artifact: {
             kind: "gmail",
-            title: "Reply to Acme procurement",
-            to: ACME_PROCUREMENT.reply.to,
-            subject: ACME_PROCUREMENT.reply.subject,
-            body: ACME_PROCUREMENT.reply.body,
+            title: "AI security follow-up",
+            to: APPROVED_ANSWER.reply.to,
+            subject: APPROVED_ANSWER.reply.subject,
+            body: APPROVED_ANSWER.reply.body,
           },
         },
         {
           id: "m5",
-          from: "paper",
+          from: "answers",
           kind: "system",
-          body: "Nothing sent. The reply stays a draft until you tap Send.",
+          body: "Nothing sent. The response waits for seller review.",
         },
       ],
     },
   },
   {
-    id: "attach-engine",
+    id: "account-outreach",
     number: 3,
-    title: "Pipeline generation is now easier than ever",
-    trigger: "A target account enters your list",
-    backgroundAction: "Researching signals + building personalized outreach",
+    title: "Research an account and draft personal outreach",
+    trigger: "A target account enters the list",
+    backgroundAction: "Researching approved public signals and drafting outreach",
     problem:
-      "Cold outbound is a generic sequence. No research, no hypothesis, no evidence, and a name from a list. Pipeline that lands starts with why this account, why now, and who would care.",
+      "Generic outreach gives the buyer no reason to respond. A new seller needs verified account context before making the message personal.",
     botJob:
-      "When an account enters your target list, Grok Bot researches it, writes a 3-why, finds evidence of the pain, names who cares, then drafts LinkedIn, email, and a page. Draft only. You send.",
+      "Grok Bot researches the target account, keeps missing evidence as a placeholder, and drafts outreach that the seller must review.",
     storyboard: [
       {
-        when: "No meeting yet",
-        label: "Acme hits your target list. Grok starts without a prompt.",
+        when: "Account added",
+        label: "Target account enters the list and research starts.",
         scene: "inspect",
         visual: {
           kind: "account-research",
-          account: "Acme",
-          sources: ["Status page", "Careers", "Engineering"],
-          signal: "47-minute Sev-2",
+          account: "Target account",
+          sources: ["Public site", "Public filings", "Approved CRM"],
+          signal: "Generic sample. Verify before use.",
         },
       },
       {
-        when: "90 seconds later",
-        label: "It turns public evidence into a sharp 3-why.",
+        when: "Research organized",
+        label: "The account hypothesis separates evidence from open fields.",
         scene: "notes",
         visual: {
           kind: "three-why",
           items: [
-            { label: "Why us", answer: "APM + Logs" },
-            { label: "Why now", answer: "Sev-2 · 14d ago" },
-            { label: "Why them", answer: "Own time-to-fix" },
+            {
+              label: "Why this account",
+              answer: "TBD, add one verified priority",
+            },
+            {
+              label: "Why now",
+              answer: "TBD, add one current public trigger",
+            },
+            {
+              label: "Why Zscaler",
+              answer: "Secure AI apps, agents, workflows",
+            },
           ],
         },
       },
       {
-        when: "Campaign ready",
-        label: "The right buyer gets three personalized drafts.",
-        scene: "map",
+        when: "Drafts ready",
+        label: "The seller gets channel-ready drafts with generic placeholders.",
+        scene: "send",
         visual: {
           kind: "outreach-ready",
-          person: "Priya Shah · VP Engineering",
-          channels: ["LinkedIn", "Email", "Acme page"],
-          status: "3 drafts · 0 sent",
+          person: "Target contact (illustrative)",
+          channels: ["LinkedIn", "Email", "Account page"],
+          status: "Drafts ready. Nothing sent.",
         },
       },
       {
-        when: "Ready for your click",
-        label: "Research, message, and account page — all built from their business.",
+        when: "Finished artifact",
+        label: "The final pack includes the hypothesis, sources, contact, and drafts.",
         scene: "send",
-        artifact: ACME_OUTBOUND,
+        artifact: OUTREACH_PACK,
       },
     ],
     unlock:
-      "Research, a 3-why, evidence, named buyers, and sendable drafts. Nothing fires until you tap.",
+      "The seller gets a reviewable outreach pack without a fake company, person, or trigger.",
     outcome:
-      "One account in. Research, a 3-why, named buyers, and personalized outreach out.",
-    clips: ["02-prospecting-pg"],
+      "Target account research becomes personal outreach with every placeholder marked.",
+    clips: [],
     demo: {
-      title: "Outbound",
-      subtitle: "Research to a first meeting",
+      title: "Account Research",
+      subtitle: "Verified context to outreach drafts",
       participants: [
         { id: "you", name: "You", role: "you" },
         {
-          id: "attach",
-          name: "Outbound",
+          id: "research",
+          name: "Account Research",
           role: "bot",
-          persona: "Researches the account, writes the 3-why, and drafts the outreach",
-          color: "#FF9500",
+          persona: "Researches the account and drafts reviewed outreach",
+          color: "#F47B20",
         },
       ],
       messages: [
         {
           id: "m1",
-          from: "attach",
+          from: "research",
           kind: "routine",
-          body: "Acme entered your target-account list. No meeting yet. Researching the account, building the 3-why, and finding the people who would feel the pain. Drafts only.",
+          body:
+            "Target account entered the list. I am checking public sources and the approved account record. Drafts only.",
         },
         {
           id: "m2",
-          from: "attach",
+          from: "research",
           kind: "text",
-          body: "In the account. Careers, status page, engineering blog. Staff SRE JD is asking for stitching APM and logs. Status page still has a 47-minute Sev-2. Writing the 3-why from that, not from a persona.",
+          body:
+            "No verified account trigger is included in this generic sample. I left the account priority and timing as TBD.",
         },
         {
           id: "m3",
-          from: "attach",
+          from: "research",
           kind: "draft",
-          draftLabel: "3-why hypothesis",
+          draftLabel: "Account hypothesis",
           artifact: {
             kind: "packet",
-            title: "Acme 3-why",
-            fields: ACME_OUTBOUND.hypothesis.map((item) => ({
+            title: "Target account hypothesis",
+            fields: OUTREACH_PACK.hypothesis.map((item) => ({
               label: item.k,
               value: item.body,
             })),
@@ -521,90 +503,84 @@ export const JOBS: CroJob[] = [
         },
         {
           id: "m4",
-          from: "attach",
+          from: "research",
           kind: "draft",
-          draftLabel: "Evidence + who cares",
+          draftLabel: "Evidence and target role",
           artifact: {
             kind: "packet",
-            title: "Proof, then the people",
+            title: "Research checklist",
             fields: [
-              ...ACME_OUTBOUND.evidence.map((item) => ({
+              ...OUTREACH_PACK.evidence.map((item) => ({
                 label: item.source,
                 value: item.finding,
               })),
-              ...ACME_OUTBOUND.targets.map((person) => ({
-                label: `${person.name} · ${person.role}`,
-                value: person.why,
+              ...OUTREACH_PACK.targets.map((target) => ({
+                label: `${target.name}, ${target.role}`,
+                value: target.why,
               })),
             ],
           },
         },
         {
           id: "m5",
-          from: "attach",
+          from: "research",
           kind: "draft",
-          draftLabel: "LinkedIn · not sent",
+          draftLabel: "LinkedIn message",
           artifact: {
             kind: "linkedin",
-            title: "LinkedIn to Priya Shah",
-            to: "Priya Shah",
-            role: "VP Engineering, Acme",
-            body: "Priya — your status page from 14 days ago and the Staff SRE JD say the same thing: on-call still stitches tools to name a Sev-2. 90 seconds on how APM + Logs in the platform team would have named that incident. Draft only. Nothing sent.",
+            title: "LinkedIn draft",
+            to: OUTREACH_PACK.drafts[0].to,
+            role: "Target role",
+            body: OUTREACH_PACK.drafts[0].body,
           },
         },
         {
           id: "m6",
-          from: "attach",
+          from: "research",
           kind: "draft",
-          draftLabel: "Gmail · not sent",
+          draftLabel: "Email",
           artifact: {
             kind: "gmail",
-            title: "Email to Priya Shah",
-            to: "Priya Shah, VP Engineering",
-            subject: "Acme's last Sev-2 and the Staff SRE JD",
-            body: "Priya — the 47-minute Sev-2 and the Staff SRE posting both point at stitching APM and logs. I put a one-page note on how Datadog would start in that platform team, not a product tour. Happy to walk Chris Okonkwo through it too. Nothing else in the ask. Draft only until you tap Send.",
+            title: "Email draft",
+            to: OUTREACH_PACK.drafts[1].to,
+            subject: OUTREACH_PACK.drafts[1].subject || "AI security",
+            body: OUTREACH_PACK.drafts[1].body,
           },
         },
         {
           id: "m7",
-          from: "attach",
+          from: "research",
           kind: "draft",
-          draftLabel: "Page for this account · not live",
+          draftLabel: "Account page",
           artifact: {
             kind: "one-pager",
-            title: ACME_OUTBOUND.page.headline,
-            eyebrow: "Page for Acme",
+            title: OUTREACH_PACK.page.headline,
+            eyebrow: "Illustrative sample",
             sections: [
               {
-                heading: "What we saw",
-                body:
-                  ACME_OUTBOUND.evidence[0]?.finding ??
-                  "Public incident. The stitch is still the story.",
+                heading: "Approved direction",
+                body: OUTREACH_PACK.page.body,
               },
               {
-                heading: "Why this team",
+                heading: "Before sharing",
                 body:
-                  ACME_OUTBOUND.hypothesis.find((item) => item.k === "Why them")
-                    ?.body ?? "VP Eng owns time-to-fix.",
-              },
-              {
-                heading: "How the product maps",
-                body: ACME_OUTBOUND.page.body,
+                  "Add a verified account priority, current trigger, and confirmed contact.",
               },
             ],
           },
         },
         {
           id: "m8",
-          from: "attach",
+          from: "research",
           kind: "system",
-          body: "Nothing sent. LinkedIn, Gmail, and the page stay drafts until you tap Send.",
+          body:
+            "Nothing sent. LinkedIn, email, and the account page wait for seller review.",
         },
       ],
     },
-  }
+  },
 ];
 
-export function getJob(id: string): CroJob | undefined {
+export function getJob(id: string): SalesJob | undefined {
   return JOBS.find((job) => job.id === id);
 }

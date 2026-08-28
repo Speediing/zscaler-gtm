@@ -4,8 +4,8 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Grok Bot for Datadog sales",
-  description: "Grok Bot for Datadog sales",
+  title: "Zscaler x SpaceXAI",
+  description: "Grok Bot workflows for Zscaler sellers",
   robots: {
     index: false,
     follow: false,

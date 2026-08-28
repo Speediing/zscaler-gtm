@@ -1,10 +1,12 @@
-# Grok Bot for Datadog GTM
+# Zscaler x SpaceXAI
 
-Passworded site. Grok Bot from SpaceXAI, for Datadog GTM.
+Password-gated sales site for Zscaler sellers. It shows three illustrative Grok Bot jobs:
 
-## What it is
+- Turn live discovery into a next-meeting brief.
+- Find approved answers and draft a response.
+- Research a target account and draft personal outreach.
 
-Three GTM jobs on one page. Each job has a short problem statement, an interactive Grok Bot demo, and the matching Krista Letz clips under that demo. Below that: a light index of the clips and the public Grok Bot quote wall.
+All account details are generic placeholders. The examples do not represent a Zscaler customer or account.
 
 ## Run locally
 
@@ -14,18 +16,16 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). Default password is `land2expand` (override with `SITE_PASSWORD`).
+Set your own local `SITE_PASSWORD` in `.env.local`. Open [http://localhost:3000](http://localhost:3000).
 
-## Krista clips
-
-Download into `private/media/krista-clips/` from the GitHub release (served only through the passworded `/api/media/...` route):
+## Check the content
 
 ```bash
-gh release download krista-gtm-clips-720p-2026-08-26 \
-  --repo Speediing/grok-bot-quotes \
-  --dir private/media/krista-clips
+npm run check:clean
 ```
 
-## Deploy
+The check rejects prior-customer terms, old brand asset names, the long dash character, and retired purple brand colors.
 
-Preview only under the `jasonwiker` Vercel team, project name `datadog-cro`. Set `SITE_PASSWORD=land2expand`. Do not promote to a public production domain until Jason says so.
+## Deployment settings
+
+Use the slug `zscaler`. Set `SITE_PASSWORD` in the deployment environment. Do not put a real password in a tracked file.

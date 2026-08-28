@@ -56,7 +56,6 @@ export function useDemoPlayback(thread: DemoThread) {
     const showTyping =
       who?.role === "bot" ||
       next.kind === "draft" ||
-      next.kind === "handoff" ||
       next.kind === "routine";
     const wait = defaultDelay(next, people);
     const timers: number[] = [];
