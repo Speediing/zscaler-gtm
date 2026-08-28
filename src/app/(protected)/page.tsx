@@ -1,4 +1,5 @@
 import { CompareTable } from "@/components/CompareTable";
+import { HeroDemo } from "@/components/HeroDemo";
 import { HeroTelemetry } from "@/components/HeroTelemetry";
 import { JobSection } from "@/components/JobSection";
 import { QuoteWall } from "@/components/QuoteWall";
@@ -23,15 +24,7 @@ export default function HomePage() {
         <div className="report-hero">
           <HeroTelemetry />
           <section className="hero">
-            <div>
-              <p className="eyebrow">Grok Bot for Zscaler sales</p>
-              <h1>Zscaler x SpaceXAI</h1>
-              <p className="hero-intro">
-                Grok Bot helps sellers turn discovery into a brief, find
-                approved answers, and prepare account outreach. Every sample
-                stays a draft until the seller reviews it.
-              </p>
-            </div>
+            <HeroDemo />
           </section>
 
           <section className="usecase-framing">
